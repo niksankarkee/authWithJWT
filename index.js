@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const postRoute = require('./routes/posts');
+
 // Import Routes
 const authRoute = require('./routes/auth');
 
@@ -22,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // Route Middleware
 app.use('/api/user', authRoute);
-
+app.use('/api/posts', postRoute);
 
 
 app.listen(3000, () => {
